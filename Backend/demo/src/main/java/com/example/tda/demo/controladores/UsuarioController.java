@@ -27,6 +27,7 @@ public class UsuarioController {
 	
 	@PostMapping("/registrar")
     public Usuario guardarUsuario(@RequestBody Usuario usuario) {
+		
 		System.out.println("Aqui llega");
         return usuarioService.save(usuario);
     }
