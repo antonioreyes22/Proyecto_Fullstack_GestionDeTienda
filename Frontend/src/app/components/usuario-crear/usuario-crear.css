@@ -1,0 +1,31 @@
+h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.registerForm form{
+    text-align: center;
+}
+
+.registerForm form ul li{
+    padding-top: 10px;
+}
+
+.bttn input{
+    background-color: rgb(131, 205, 255);
+    color: black;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.bttn input:hover{
+    background-color: rgb(92, 144, 179);
+    color: white;
+}
+
+.msg{
+    text-align: center;
+    margin-top: 30px;
+}

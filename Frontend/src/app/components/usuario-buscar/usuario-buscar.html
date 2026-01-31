@@ -1,0 +1,19 @@
+<h1>Busqueda de Usuarios</h1>
+
+<form (ngSubmit)="getUser(nombre)">
+    <li>
+        <label for="nombre">Nombre</label>
+        <input [(ngModel)]="nombre" type="text" id="nombre" name="nombre">
+    </li>
+    <input type="submit" value="Buscar">
+</form>
+
+<div *ngIf="usuario; else error">
+    <h2>Usuario encontrado</h2>
+    <p>Nombre: {{usuario.nombre}}</p>
+    <p>Correo: {{usuario.email}}</p>
+</div> 
+
+<ng-template #error>
+    <h2 *ngIf="buscado">Usuario no encontrado</h2>
+</ng-template>
