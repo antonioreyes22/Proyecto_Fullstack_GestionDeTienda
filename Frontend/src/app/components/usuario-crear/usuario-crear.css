@@ -1,31 +1,92 @@
 h1{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
+.registerForm{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin-top: 80px;
+}
+
 .registerForm form{
-    text-align: center;
+    border: solid 1px rgb(255, 255, 255);
+    background-color: rgb(14, 68, 104);
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .registerForm form ul li{
-    padding-top: 10px;
+    list-style-type: none;
+}
+
+.registerForm form ul li+li{
+    margin-top: 50px;
+}
+
+.registerForm form label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.registerForm form span{
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+    color: rgb(243, 108, 108);
+    position: absolute;
+}
+
+.registerForm form input[type=text],
+.registerForm form input[type=email]{
+  box-sizing: border-box;
+  width: 400px;
+  font-size: 18px;
+  background-color: rgb(66, 66, 66);
+  padding: 5px 10px;
+    &.ng-valid
+    {
+        outline-color: green;
+    }
+}
+
+.registerForm form input[type=text]:focus,
+.registerForm form input[type=email]:focus{
+    background-color: rgb(96, 96, 96);
 }
 
 .bttn input{
-    background-color: rgb(131, 205, 255);
-    color: black;
-    margin-top: 20px;
-    padding: 5px;
+    background-color: rgb(11, 53, 81);
+    margin-top: 50px;
+    padding: 8px;
     border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .bttn input:hover{
-    background-color: rgb(92, 144, 179);
-    color: white;
+    background-color: rgb(25, 105, 159);
+    color: rgb(226, 224, 101);
+    border-color: rgb(180, 180, 180);
 }
 
 .msg{
-    text-align: center;
-    margin-top: 30px;
+    margin: 60px auto;
+    border: solid 1px white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.msg h2{
+    color: green;
+}
+
+.msg p{
+    margin-top: 10px;
 }

@@ -72,10 +72,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public void deleteByName(String name) 
 	{
 		List<Usuario> usuarios = usuarioRepository.findAll();
+		boolean eliminado = false;
 		
 		for(Usuario usuario: usuarios)
-			if(usuario.getNombre().equals(name))
+			if(usuario.getNombre().equals(name)) 
+			{
 				usuarioRepository.delete(usuario);
+				eliminado = true;
+			}
+		
+		if(!eliminado)
+			throw new RuntimeException("Usuario no encontrado");
 	}
 
 }

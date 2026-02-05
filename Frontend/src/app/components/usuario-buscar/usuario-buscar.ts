@@ -16,12 +16,11 @@ export class UsuarioBuscar implements OnInit{
 
   usuario?: Usuario;
   nombre: string = '';
-  buscado: boolean = false;
+  buscado?: boolean;
 
   constructor(private usuarioService: UsuarioService){}
   
   ngOnInit(): void {
-    //this.listUsers();
   }
 
   getUser(name: string): void{

@@ -1,29 +1,53 @@
 <h1>Formulario de Registro</h1>
 
 <div class="registerForm">
-    <form #form="ngForm" (ngSubmit)="addUser3()"> 
+    <form [formGroup]="form" (ngSubmit)="addUser()"> 
         <ul>
             <li>
                 <label for="name">Nombre</label>
-                <input [(ngModel)]="nombre" type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" formControlName="nombre" required>
+                @if(form.controls['nombre'].touched && form.controls['nombre'].hasError('required'))
+                {
+                    <span>El nombre es un campo requerido</span>
+                }
+
+                @if(form.controls['nombre'].touched && form.controls['nombre'].hasError('minlength'))
+                {
+                    <span>El nombre debe tener como mínimo 2 caracteres</span>
+                }
+
+                @if(form.controls['nombre'].touched && form.controls['nombre'].hasError('nombreExiste'))
+                {
+                    <span>El nombre existe</span>
+                }
             </li> 
             <li> 
                 <label for="name">Correo</label>
-                <input [(ngModel)]="email" type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" formControlName="email" required>
+                @if(form.controls['email'].touched && form.controls['email'].hasError('required'))
+                {
+                    <span>El email es un campo requerido</span>
+                }
+
+                @if(form.controls['email'].touched && form.controls['email'].hasError('email'))
+                {
+                    <span>No se trata de un correo electrónico</span>
+                }
+
+                @if(form.controls['email'].touched && form.controls['email'].hasError('emailExiste'))
+                {
+                    <span>El email existe</span>
+                }
             </li> 
-            <div class="bttn"><input type="submit" value="Registrar" [disabled]="form.invalid"></div>
+            <div class="bttn"><input type="submit" value="Registrar"></div>
         </ul> 
     </form>
 </div>
 
-<div class="msg" *ngIf="creado && !exist; else error">
+<div class="msg" *ngIf="creado">
     <h2>Usuario creado satisfactoriamente</h2>
-    <p>Nombre: {{nombre}}</p>
-    <p>Correo: {{email}}</p>
+    <p>Nombre: {{nuevoNombre}}</p>
+    <p>Correo: {{nuevoEmail}}</p>
 </div> 
 
-<ng-template #error>
-    <div class="msg">
-        <h2 *ngIf="creado && exist">{{errorMsg}}</h2>
-    </div>
-</ng-template>
+

@@ -85,15 +85,7 @@
               "src/styles.css"
             ]
           }
-        },
-        "deploy": {
-        "builder": "angular-cli-ghpages:deploy",
-        "options": {
-        "repo": "https://github.com/antonioreyes22/PokemonTeamMaker.git",
-        "branch": "gh-pages",
-        "baseHref": "/PokemonTeamMaker/"
-  }
-}
+        }
       }
     }
   }

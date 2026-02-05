@@ -2,87 +2,58 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario-service';
 import { Usuario } from '../../models/usuario.model';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { inject } from '@angular/core';
+import { Validators } from '@angular/forms';
+import { emailExisteValidator, nombreExisteValidator } from '../../validators/usuario-exists.validator';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-usuario-crear',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './usuario-crear.html',
   styleUrl: './usuario-crear.css',
 })
 export class UsuarioCrear implements OnInit{
 
-    nombre : string = '';
-    email : string = '';
-    exist: boolean = false;
-    creado: boolean = false;
-    errorMsg: string = '';
+  fb = inject(FormBuilder);
+  form!: FormGroup;
+  creado: boolean = false;
+  nuevoNombre?: string;
+  nuevoEmail?: string;
 
-    constructor(private usuarioService: UsuarioService){}
+  constructor(private usuarioService: UsuarioService){}
 
-  ngOnInit(): void{
-    
-  }
- 
-  addUser(){
-    let usuario = new Usuario(this.nombre, this.email);
-    console.log(usuario);
-    this.usuarioService.crearUsuario(usuario).subscribe(
-      res => console.log(res)
-    );
-  }
-
-  addUser2()
+  ngOnInit(): void
   {
-    this.creado = false;
-    this.exist = false;
+    this.form = this.fb.group(
+    {
+      nombre: ['', [Validators.required, Validators.minLength(2)], nombreExisteValidator(this.usuarioService)],
+      email: ['', [Validators.required, Validators.email], emailExisteValidator(this.usuarioService)]
+    })  
+  }
 
-    this.usuarioService.getUserByName(this.nombre).subscribe(usuario => {
-    if (usuario) {
-      this.creado = true;
-      this.exist = true;
-    } else {
-      const nuevoUsuario = new Usuario(this.nombre, this.email);
-      this.usuarioService.crearUsuario(nuevoUsuario).subscribe(() => {
-        this.creado = true;
-      });
+  addUser()
+  {
+    this.creado = false
+
+    if (this.form.invalid || this.form.pending) 
+    {
+      this.form.markAllAsTouched();
+      return;
     }
-  });
-  }
 
-  addUser3()
-  {
-    this.creado = false;
-    this.exist = false;
+    const { nombre, email } = this.form.value;
 
-    this.usuarioService.getUserByName(this.nombre).subscribe(usuario => 
-      {
-        if(usuario)
-          {
-            this.creado = true;
-            this.exist = true;
-            this.errorMsg = "Nombre de usuario existente";
-          }
-          else
-            {
-              this.usuarioService.getUserByEmail(this.email).subscribe(usuario => 
-                {
-                  if(usuario)
-                    {
-                      this.creado = true;
-                      this.exist = true;
-                      this.errorMsg = "Correo existente";
-                    }
-                    else
-                      {
-                        const nuevoUsuario = new Usuario(this.nombre, this.email);
-                        this.usuarioService.crearUsuario(nuevoUsuario).subscribe(() => {
-                        this.creado = true;
-                        });
-                      }
-                })
-            }        
-      })
+    const usuario = new Usuario(nombre!, email!);
+
+    this.usuarioService.crearUsuario(usuario).subscribe(res => {
+      console.log(res);
+      this.nuevoNombre = usuario.nombre;
+      this.nuevoEmail = usuario.email;
+      this.creado = true;
+      this.form.reset();
+    });
   }
 }
 

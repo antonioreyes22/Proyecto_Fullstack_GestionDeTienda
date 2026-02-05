@@ -1,0 +1,52 @@
+h1{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.userList{
+    display: flex;
+    justify-content: center;
+    grid-template-columns: 1fr 2fr;
+    width: 500px;
+    margin: 80px auto;
+}
+
+.emailColumn{
+    color: rgb(198, 198, 32);
+}
+
+.userList ul{
+
+    border: solid 1px white;
+    border-radius: 10px;
+}
+
+.userList ul li{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px;
+    width: auto;
+    font-size: 24px;
+}
+
+.userList ul li:not(:last-child) {
+    border-bottom: 1px solid white;
+}
+
+.emailColumn{
+    margin-left: 40px;
+}
+
+.nameTitle{ 
+    grid-column-start: 1;
+    margin-bottom: 20px;
+}
+
+.emailTitle{
+    grid-column-start: 2;
+    color: rgb(198, 198, 32);
+    margin-left: 40px;
+    margin-bottom: 20px;
+}

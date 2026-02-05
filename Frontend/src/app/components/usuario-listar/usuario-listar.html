@@ -1,7 +1,11 @@
 <h1>Lista de Usuarios</h1>
 
-<ul>
-    <li *ngFor="let usuario of usuarios">
-        {{usuario.nombre}} - {{usuario.email}}
-    </li>
-</ul>
+<div class="userList">
+    <ul>
+        <li><div class="nameTitle">NOMBRE</div><div class="emailTitle">EMAIL</div></li>
+        <li *ngFor="let usuario of usuarios">
+            <div class="nameColumn">{{usuario.nombre}}</div>
+            <div class="emailColumn">{{usuario.email}}</div>
+        </li>
+    </ul>
+</div>
