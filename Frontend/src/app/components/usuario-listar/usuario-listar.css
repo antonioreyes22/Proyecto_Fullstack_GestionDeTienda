@@ -44,6 +44,7 @@ h1{
 
 .nameColumn{
     margin-left: 40px;
+
 }
 
 .emailTitle{
@@ -85,4 +86,37 @@ h1{
 .modifyBttn:hover{
     background-color: green;
     color: white;
+}
+
+form .nameSpan{
+    display: block;
+    font-size: 13px;
+    margin-top: 3px;
+    position: absolute;
+    margin-left: -80px;
+    color: rgb(243, 108, 108);
+}
+
+form .emailSpan{
+    display: block;
+    font-size: 13px;
+    margin-top: 3px;
+    position: absolute;
+    margin-left: 380px;
+    color: rgb(243, 108, 108);
+}
+
+.nameInput{
+    margin-left: -120px;
+    font-size: 16px;
+    padding: 3px;
+    text-align: center;
+}
+
+.emailInput{
+    margin-left: 230px;
+    font-size: 16px;
+    color: yellow;
+    padding: 3px;
+    text-align: center;
 }

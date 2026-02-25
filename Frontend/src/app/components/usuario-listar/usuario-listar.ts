@@ -2,7 +2,11 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario-service';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { inject } from '@angular/core';
+import { Validators } from '@angular/forms';
+import { emailExisteValidatorID, nombreExisteValidatorID } from '../../validators/usuario-exists.validator';
+
 
 @Component({
   selector: 'app-usuario-listar',
@@ -15,6 +19,9 @@ export class UsuarioListar implements OnInit{
   
   usuarios: Usuario [] = [];
   modificando: boolean [] = [];
+  fb = inject(FormBuilder);
+  form!: FormGroup;
+  ocultar: boolean = false;
 
   constructor(private usuarioService: UsuarioService){}
   
@@ -38,34 +45,32 @@ export class UsuarioListar implements OnInit{
 
   modifyingUser(index: number){
     this.modificando[index] = true;
+    this.ocultar = true;
+    const usuario = this.usuarios[index];
+
+    this.form = this.fb.group(
+    {
+      nombre: [usuario.nombre, [Validators.minLength(2)], nombreExisteValidatorID(this.usuarioService, usuario.id!)],
+      email: [usuario.email, [Validators.email], emailExisteValidatorID(this.usuarioService, usuario.id!)]
+    })  
   }
 
-  saveUser(id: number, username: string, email: string, index: number)
-  {
-    
-    this.usuarioService.getUserByName(username).subscribe
-    (
-      (existingUser) => 
-        {
-          if (existingUser && existingUser.id !== id) 
-            {
-              username = ""; // no cambiamos el nombre
-            }
+  saveUser(id: number, index: number) {
+    if (this.form.invalid) return;
 
-            this.usuarioService.getUserByEmail(email).subscribe
-            (
-            (existingUser) => 
-              { 
-                if (existingUser && existingUser.id !== id) 
-                  {
-                    email = ""; // no cambiamos el email
-                  }
+    let { nombre, email } = this.form.value;
 
-              this.usuarioService.updateUser(id, username, email).subscribe();
-              window.location.reload();
-              }
-            )
-      }         
-    )
-  }
+    if(nombre === "")
+      nombre = this.usuarios[index].nombre;
+
+    if(email === "")
+      email = this.usuarios[index].email;
+
+    this.usuarioService.updateUser(id, nombre, email)
+      .subscribe(() => {
+        this.modificando[index] = false;
+        this.ocultar = false;
+        this.listUsers(); // refresca la lista sin recargar la página
+      });
+}
 }

@@ -11,18 +11,43 @@
             {
                 <div class="nameColumn">{{usuario.nombre}}</div>
                 <div class="emailColumn">{{usuario.email}}</div>
-                <button class="deleteBttn" (click)="deleteUser(usuario.nombre)">Eliminar</button>
-                <button class="modifyBttn" (click)="modifyingUser(i)">Modificar</button>
-                
+                @if(!ocultar)
+                {
+                    <button class="deleteBttn" (click)="deleteUser(usuario.nombre)">Eliminar</button>
+                    <button class="modifyBttn" (click)="modifyingUser(i)">Modificar</button>
+                }
+
+                @if(ocultar)
+                {
+                    <button class="deleteBttn" style="visibility: hidden;">Eliminar</button>
+                    <button class="modifyBttn" style="visibility: hidden;">Modificar</button>
+                }
             }
 
             @if(modificando[i])
             {
-                <input class="nameColumn" type="text" [(ngModel)]="usuario.nombre">
-                <input class="emailColumn" type="text" [(ngModel)]="usuario.email">
-                <button class="modifyBttn" (click)="saveUser(usuario.id!, usuario.nombre, usuario.email, i)">Aceptar</button>
-            }
-            
+                <form [formGroup]="form" (ngSubmit)="saveUser(usuario.id!, i)">
+                    <input class="nameInput" type="text" formControlName="nombre">
+                    @if(form.controls['nombre'].hasError('minlength'))
+                    {
+                        <span class="nameSpan">Nombre demasiado corto</span>
+                    }
+                    @if(form.controls['nombre'].touched && form.controls['nombre'].hasError('nombreExiste'))
+                    {
+                    <span class="nameSpan">El nombre existe</span>
+                    }
+                    <input class="emailInput" type="text" formControlName="email">
+                    @if(form.controls['email'].hasError('email'))
+                    {
+                        <span class="emailSpan">No es un email</span>
+                    }
+                    @if(form.controls['email'].touched && form.controls['email'].hasError('emailExiste'))
+                    {
+                    <span class="emailSpan">El email existe</span>
+                    }
+                    <button class="modifyBttn" type="submit" [disabled]="form.invalid">Aceptar</button>
+                </form>
+            } 
         </li>
     </ul>
 </div>
