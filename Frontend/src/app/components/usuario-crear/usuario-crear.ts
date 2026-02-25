@@ -29,7 +29,8 @@ export class UsuarioCrear implements OnInit{
     this.form = this.fb.group(
     {
       nombre: ['', [Validators.required, Validators.minLength(2)], nombreExisteValidator(this.usuarioService)],
-      email: ['', [Validators.required, Validators.email], emailExisteValidator(this.usuarioService)]
+      email: ['', [Validators.required, Validators.email], emailExisteValidator(this.usuarioService)],
+      password: ['', [Validators.required, Validators.minLength(4)]]
     })  
   }
 
@@ -43,9 +44,9 @@ export class UsuarioCrear implements OnInit{
       return;
     }
 
-    const { nombre, email } = this.form.value;
+    const { nombre, email, password } = this.form.value;
 
-    const usuario = new Usuario(nombre!, email!);
+    const usuario = new Usuario(nombre!, email!, password!);
 
     this.usuarioService.crearUsuario(usuario).subscribe(res => {
       console.log(res);

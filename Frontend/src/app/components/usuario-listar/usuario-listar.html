@@ -2,10 +2,27 @@
 
 <div class="userList">
     <ul>
-        <li><div class="nameTitle">NOMBRE</div><div class="emailTitle">EMAIL</div></li>
-        <li *ngFor="let usuario of usuarios">
-            <div class="nameColumn">{{usuario.nombre}}</div>
-            <div class="emailColumn">{{usuario.email}}</div>
+        <li><div class="nameTitle">NOMBRE</div>
+        <div class="emailTitle">EMAIL</div>
+        <div class="idTitle">ID</div></li>
+        <li *ngFor="let usuario of usuarios; index as i">
+            <div class="idColumn">{{usuario.id}}</div>
+            @if(!modificando[i])
+            {
+                <div class="nameColumn">{{usuario.nombre}}</div>
+                <div class="emailColumn">{{usuario.email}}</div>
+                <button class="deleteBttn" (click)="deleteUser(usuario.nombre)">Eliminar</button>
+                <button class="modifyBttn" (click)="modifyingUser(i)">Modificar</button>
+                
+            }
+
+            @if(modificando[i])
+            {
+                <input class="nameColumn" type="text" [(ngModel)]="usuario.nombre">
+                <input class="emailColumn" type="text" [(ngModel)]="usuario.email">
+                <button class="modifyBttn" (click)="saveUser(usuario.id!, usuario.nombre, usuario.email, i)">Aceptar</button>
+            }
+            
         </li>
     </ul>
 </div>

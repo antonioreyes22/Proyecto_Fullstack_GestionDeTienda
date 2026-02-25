@@ -8,12 +8,7 @@ h1{
     display: flex;
     justify-content: center;
     grid-template-columns: 1fr 2fr;
-    width: 500px;
     margin: 80px auto;
-}
-
-.emailColumn{
-    color: rgb(198, 198, 32);
 }
 
 .userList ul{
@@ -26,7 +21,7 @@ h1{
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 10px;
+    padding: 20px 20px 20px;
     width: auto;
     font-size: 24px;
 }
@@ -35,18 +30,59 @@ h1{
     border-bottom: 1px solid white;
 }
 
-.emailColumn{
-    margin-left: 40px;
+.idTitle{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    margin-bottom: 20px;
+    padding-right: 200px;
 }
 
 .nameTitle{ 
-    grid-column-start: 1;
+    grid-column-start: 2;
     margin-bottom: 20px;
 }
 
+.nameColumn{
+    margin-left: 40px;
+}
+
 .emailTitle{
-    grid-column-start: 2;
+    grid-column-start: 3;
+    color: rgb(198, 198, 32);
+    margin-right: 170px;
+    margin-bottom: 20px;
+}
+
+.emailColumn{
     color: rgb(198, 198, 32);
     margin-left: 40px;
-    margin-bottom: 20px;
+}
+
+.deleteBttn{
+    grid-column-start: 4;
+    margin-left: 40px;
+    color: black;
+    background-color: rgb(193, 17, 17);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.deleteBttn:hover{
+    background-color: rgb(116, 14, 14);
+    color: rgb(183, 183, 183);
+}
+
+.modifyBttn{
+    grid-column-start: 4;
+    margin-left: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding: 3px;
+    color: black;
+    background-color: rgb(103, 201, 33);
+}
+
+.modifyBttn:hover{
+    background-color: green;
+    color: white;
 }

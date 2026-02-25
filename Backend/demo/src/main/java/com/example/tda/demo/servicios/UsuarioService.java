@@ -13,4 +13,5 @@ public interface UsuarioService {
 	public Usuario getByEmail(String email);
 	public void deleteById(Long id);
 	public void deleteByName(String name);
+	public Usuario UpdateUser(Long id, String newName, String newEmail);
 }

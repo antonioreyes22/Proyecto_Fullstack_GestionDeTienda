@@ -39,6 +39,18 @@
                     <span>El email existe</span>
                 }
             </li> 
+            <li>
+                <label for="paswword">Contraseña</label>
+                <input type="password" id="password" name="password" formControlName="password" required>
+                @if(form.controls['password'].touched && form.controls['password'].hasError('required'))
+                {
+                    <span>La contraseña es un campo requerido</span>
+                }
+                @if(form.controls['password'].touched && form.controls['password'].hasError('minlength'))
+                {
+                    <span>La contraseña debe tener mínimo 4 caracteres</span>
+                }
+            </li>
             <div class="bttn"><input type="submit" value="Registrar"></div>
         </ul> 
     </form>

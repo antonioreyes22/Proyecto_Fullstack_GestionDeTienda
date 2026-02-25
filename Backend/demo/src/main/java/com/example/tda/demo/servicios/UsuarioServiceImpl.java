@@ -84,5 +84,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 		if(!eliminado)
 			throw new RuntimeException("Usuario no encontrado");
 	}
+	
+	@Override
+	public Usuario UpdateUser(Long id, String newName, String newEmail) 
+	{
+		Usuario usuario = getById(id);
+		
+		if (newName != null && !newName.trim().isEmpty())
+			usuario.setNombre(newName);
+		
+		if (newEmail != null && !newEmail.trim().isEmpty())
+			usuario.setEmail(newEmail);
+		
+		return usuarioRepository.save(usuario);
+	}
 
 }

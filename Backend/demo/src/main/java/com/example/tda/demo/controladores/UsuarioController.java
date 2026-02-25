@@ -1,6 +1,7 @@
 package com.example.tda.demo.controladores;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,5 +68,11 @@ public class UsuarioController {
 	public void deleteByName(@PathVariable String name) 
 	{
 		usuarioService.deleteByName(name);
+	}
+	
+	@PostMapping("/modificar/id/{id}")
+	public Usuario UpdateUser(@PathVariable Long id, @RequestBody Map<String, String> datos) 
+	{
+		return usuarioService.UpdateUser(id, datos.get("newName"), datos.get("newEmail"));
 	}
 }

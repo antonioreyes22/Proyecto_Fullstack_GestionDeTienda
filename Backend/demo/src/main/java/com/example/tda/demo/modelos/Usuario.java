@@ -15,16 +15,18 @@ public class Usuario {
 	private Long id;
 	private String nombre;
 	private String email;
+	private String password;
 	
 	// Constructor
 	
 	public Usuario() {}
 	
-	public Usuario(String nombre, String email) 
+	public Usuario(String nombre, String email, String password) 
 	{	
 		super();
 		this.nombre = nombre;
 		this.email = email;
+		this.password = password;
 	}
 	
 	// Getters y Setters

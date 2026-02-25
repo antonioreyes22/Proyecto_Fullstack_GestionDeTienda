@@ -40,7 +40,8 @@ h1{
 }
 
 .registerForm form input[type=text],
-.registerForm form input[type=email]{
+.registerForm form input[type=email],
+.registerForm form input[type=password]{
   box-sizing: border-box;
   width: 400px;
   font-size: 18px;
@@ -53,7 +54,8 @@ h1{
 }
 
 .registerForm form input[type=text]:focus,
-.registerForm form input[type=email]:focus{
+.registerForm form input[type=email]:focus,
+.registerForm form input[type=password]:focus{
     background-color: rgb(96, 96, 96);
 }
 

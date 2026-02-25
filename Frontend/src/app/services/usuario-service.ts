@@ -31,4 +31,8 @@ export class UsuarioService {
   deleteUserByName(nombre: String): Observable<Usuario>{
     return this.http.post<Usuario>(this.apiUrl + "/eliminar/nombre/" + nombre, nombre);
   }
+
+  updateUser(id: number, newName: String, newEmail: String): Observable<Usuario>{
+    return this.http.post<Usuario>(this.apiUrl + "/modificar/id/" + id, {newName: newName, newEmail: newEmail})
+  }
 }
