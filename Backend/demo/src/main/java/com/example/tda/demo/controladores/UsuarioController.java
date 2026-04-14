@@ -3,6 +3,7 @@ package com.example.tda.demo.controladores;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,16 +21,19 @@ import com.example.tda.demo.servicios.UsuarioService;
 public class UsuarioController {
 	
 	private final UsuarioService usuarioService;
+	private final PasswordEncoder passwordEncoder;
 	
-	public UsuarioController(UsuarioService usuarioService) 
+	public UsuarioController(UsuarioService usuarioService, PasswordEncoder passwordEncoder) 
 	{
 		this.usuarioService = usuarioService;
+		this.passwordEncoder = passwordEncoder;
 	}
 	
 	@PostMapping("/registrar")
     public Usuario guardarUsuario(@RequestBody Usuario usuario) {
 		
 		System.out.println("Aqui llega");
+		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioService.save(usuario);
     }
 	

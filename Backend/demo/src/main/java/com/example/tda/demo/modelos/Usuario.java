@@ -16,17 +16,19 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private String password;
+	private String role;
 	
 	// Constructor
 	
 	public Usuario() {}
 	
-	public Usuario(String nombre, String email, String password) 
+	public Usuario(String nombre, String email, String password, String role) 
 	{	
 		super();
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 	
 	// Getters y Setters
@@ -50,6 +52,26 @@ public class Usuario {
 	public Long getId() 
 	{
 		return this.id;
+	}
+	
+	public void setPassword(String password) 
+	{
+		this.password = password;
+	}
+	
+	public String getPassword() 
+	{
+		return password;
+	}
+	
+	public void setRole(String role) 
+	{
+		this.role = role;
+	}
+	
+	public String getRole() 
+	{
+		return role;
 	}
 }
 
