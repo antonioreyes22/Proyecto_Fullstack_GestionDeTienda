@@ -16,6 +16,7 @@ export class UsuarioEliminar implements OnInit{
   nombre: string = '';
   eliminado?: boolean;
   error?: boolean;
+  sameUser?: boolean;
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -24,6 +25,13 @@ export class UsuarioEliminar implements OnInit{
   deleteUser(name: string): void{
     this.eliminado = false;
     this.error = false;
+    this.sameUser = false;
+
+    if(this.usuarioService.getUsername() == name)
+      {
+        this.sameUser = true;
+        return;
+      }
 
     this.usuarioService.deleteUserByName(name).subscribe({
     next:  () => this.eliminado = true,

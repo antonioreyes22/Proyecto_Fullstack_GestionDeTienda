@@ -1,1 +1,28 @@
-<p>login works!</p>
+<h1>Iniciar Sesión</h1>
+
+
+<div class="registerForm">
+    <form (ngSubmit)="loginUser()" #loginForm="ngForm">
+        <ul>
+            <li>
+                <label for="name">Nombre</label>
+                <input type="text" [(ngModel)]="username" id="nombre" name="nombre" required>
+            </li> 
+            <li>
+                <label for="password">Contraseña</label>
+                <input type="password" [(ngModel)]="password" id="password" name="password" required>
+            </li>
+            <div class="bttn"><input type="submit" value="Confirmar"></div>
+        </ul> 
+    </form>
+</div>
+
+<div class="msg" *ngIf="logged; else error">
+    <h2>Sesión iniciada satisfactoriamente</h2>
+</div> 
+
+<ng-template #error>    
+     <h2 *ngIf="failed"><div class="msg error">Credenciales incorrectas</div></h2>
+</ng-template>
+
+

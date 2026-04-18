@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../models/usuario.model';
 import { Observable } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,32 @@ export class UsuarioService {
 
   updateUser(id: number, newName: String, newEmail: String): Observable<Usuario>{
     return this.http.post<Usuario>(this.apiUrl + "/modificar/id/" + id, {newName: newName, newEmail: newEmail})
+  }
+
+  isLogged(): boolean
+  {
+    return !!localStorage.getItem('token');
+  }
+
+  cerrarSesion(): void
+  {
+    localStorage.clear();
+  }
+
+  getRole(): String | null
+  {
+    const token = localStorage.getItem('token');
+
+    if(!token)
+      return null;
+
+    const decoded: any = jwtDecode(token);
+
+    return decoded.role;
+  }
+
+  getUsername(): String | null
+  {
+    return localStorage.getItem('nombre');
   }
 }

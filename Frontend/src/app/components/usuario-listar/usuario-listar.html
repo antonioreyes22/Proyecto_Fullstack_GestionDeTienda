@@ -13,7 +13,11 @@
                 <div class="emailColumn">{{usuario.email}}</div>
                 @if(!ocultar)
                 {
-                    <button class="deleteBttn" (click)="deleteUser(usuario.nombre)">Eliminar</button>
+                    @if(usuarioService.getUsername() !== usuario.nombre)
+                    {
+                        <button class="deleteBttn" (click)="deleteUser(usuario.nombre)">Eliminar</button>
+                    }
+
                     <button class="modifyBttn" (click)="modifyingUser(i)">Modificar</button>
                 }
 

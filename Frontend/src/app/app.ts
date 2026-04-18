@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UsuarioService } from './services/usuario-service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class App {
   protected readonly title = signal('tda-de-ropa');
+
+  constructor(public usuarioService: UsuarioService){}
 }

@@ -23,7 +23,7 @@ export class UsuarioListar implements OnInit{
   form!: FormGroup;
   ocultar: boolean = false;
 
-  constructor(private usuarioService: UsuarioService){}
+  constructor(public usuarioService: UsuarioService){}
   
   ngOnInit(): void {
     this.listUsers();
@@ -70,6 +70,7 @@ export class UsuarioListar implements OnInit{
       .subscribe(() => {
         this.modificando[index] = false;
         this.ocultar = false;
+        localStorage.setItem('nombre', nombre);
         this.listUsers(); // refresca la lista sin recargar la página
       });
 }
