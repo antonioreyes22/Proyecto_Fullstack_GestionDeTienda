@@ -4,13 +4,15 @@
     <ul>
         <li><div class="nameTitle">NOMBRE</div>
         <div class="emailTitle">EMAIL</div>
-        <div class="idTitle">ID</div></li>
+        <div class="idTitle">ID</div>
+        <div class="roleTitle">ROLE</div></li>
         <li *ngFor="let usuario of usuarios; index as i">
             <div class="idColumn">{{usuario.id}}</div>
             @if(!modificando[i])
             {
                 <div class="nameColumn">{{usuario.nombre}}</div>
                 <div class="emailColumn">{{usuario.email}}</div>
+                <div class="roleColumn">{{usuario.role}}</div>
                 @if(!ocultar)
                 {
                     @if(usuarioService.getUsername() !== usuario.nombre)

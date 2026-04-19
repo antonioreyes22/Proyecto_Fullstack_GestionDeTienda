@@ -70,7 +70,8 @@ export class UsuarioListar implements OnInit{
       .subscribe(() => {
         this.modificando[index] = false;
         this.ocultar = false;
-        localStorage.setItem('nombre', nombre);
+        const updateName = this.usuarioService.getUserByName(nombre);
+        localStorage.setItem('nombre', );
         this.listUsers(); // refresca la lista sin recargar la página
       });
 }

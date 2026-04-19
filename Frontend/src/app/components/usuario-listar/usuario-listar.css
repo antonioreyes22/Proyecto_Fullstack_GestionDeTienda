@@ -7,7 +7,6 @@ h1{
 .userList{
     display: flex;
     justify-content: center;
-    grid-template-columns: 1fr 2fr;
     margin: 80px auto;
 }
 
@@ -20,10 +19,11 @@ h1{
 .userList ul li{
     list-style-type: none;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(4, 1fr);
     padding: 20px 20px 20px;
     width: auto;
     font-size: 24px;
+    gap: 0 40px;
 }
 
 .userList ul li:not(:last-child) {
@@ -32,9 +32,7 @@ h1{
 
 .idTitle{
     grid-row-start: 1;
-    grid-column-start: 1;
     margin-bottom: 20px;
-    padding-right: 200px;
 }
 
 .nameTitle{ 
@@ -42,30 +40,34 @@ h1{
     margin-bottom: 20px;
 }
 
-.nameColumn{
-    margin-left: 40px;
+.roleTitle{ 
+    grid-column-start: 4;
+    color: green;
+}
 
+.nameColumn{
+    padding-left: 30px;
 }
 
 .emailTitle{
     grid-column-start: 3;
     color: rgb(198, 198, 32);
-    margin-right: 170px;
-    margin-bottom: 20px;
 }
 
 .emailColumn{
     color: rgb(198, 198, 32);
-    margin-left: 40px;
+}
+
+.roleColumn{
+    color: green;
+    padding-left: 85px;
 }
 
 .deleteBttn{
-    grid-column-start: 4;
-    margin-left: 40px;
+    grid-column-start: 5;
     color: black;
     background-color: rgb(193, 17, 17);
-    padding-left: 5px;
-    padding-right: 5px;
+    width: 85px;
 }
 
 .deleteBttn:hover{
@@ -74,11 +76,9 @@ h1{
 }
 
 .modifyBttn{
-    grid-column-start: 4;
-    margin-left: 40px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding: 3px;
+    grid-column-start: 5;
+    padding: 4px;
+    width: 85px;
     color: black;
     background-color: rgb(103, 201, 33);
 }
@@ -86,6 +86,13 @@ h1{
 .modifyBttn:hover{
     background-color: green;
     color: white;
+}
+
+form{
+    list-style-type: none;
+    display: grid;
+    width: 234px;
+    gap: 0 50px;
 }
 
 form .nameSpan{
@@ -107,16 +114,14 @@ form .emailSpan{
 }
 
 .nameInput{
-    margin-left: -120px;
-    font-size: 16px;
-    padding: 3px;
-    text-align: center;
+    grid-column-start: 2;
+    margin-left: -50px;
 }
 
 .emailInput{
-    margin-left: 230px;
-    font-size: 16px;
-    color: yellow;
-    padding: 3px;
-    text-align: center;
+    grid-column-start: 3;
+}
+
+form button{
+    margin-left: 215px;
 }

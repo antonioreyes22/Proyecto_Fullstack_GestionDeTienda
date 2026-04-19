@@ -44,9 +44,9 @@ export class UsuarioCrear implements OnInit{
       return;
     }
 
-    const { nombre, email, password } = this.form.value;
+    const { nombre, email, password, role } = this.form.value;
 
-    const usuario = new Usuario(nombre!, email!, password!);
+    const usuario = new Usuario(nombre!, email!, password!, role!);
 
     this.usuarioService.crearUsuario(usuario).subscribe(res => {
       console.log(res);
