@@ -19,7 +19,7 @@ h1{
 .userList ul li{
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 100px 200px 250px 180px 80px;
     padding: 20px 20px 20px;
     width: auto;
     font-size: 24px;
@@ -45,10 +45,6 @@ h1{
     color: green;
 }
 
-.nameColumn{
-    padding-left: 30px;
-}
-
 .emailTitle{
     grid-column-start: 3;
     color: rgb(198, 198, 32);
@@ -60,7 +56,6 @@ h1{
 
 .roleColumn{
     color: green;
-    padding-left: 85px;
 }
 
 .deleteBttn{
@@ -90,9 +85,7 @@ h1{
 
 form{
     list-style-type: none;
-    display: grid;
-    width: 234px;
-    gap: 0 50px;
+    display: contents;
 }
 
 form .nameSpan{
@@ -100,28 +93,18 @@ form .nameSpan{
     font-size: 13px;
     margin-top: 3px;
     position: absolute;
-    margin-left: -80px;
+    margin-left: 140px;
+    margin-top: 28px;
     color: rgb(243, 108, 108);
 }
 
 form .emailSpan{
     display: block;
     font-size: 13px;
-    margin-top: 3px;
+    margin-top: 29px;
     position: absolute;
     margin-left: 380px;
     color: rgb(243, 108, 108);
 }
 
-.nameInput{
-    grid-column-start: 2;
-    margin-left: -50px;
-}
 
-.emailInput{
-    grid-column-start: 3;
-}
-
-form button{
-    margin-left: 215px;
-}

@@ -22,6 +22,7 @@ export class UsuarioListar implements OnInit{
   fb = inject(FormBuilder);
   form!: FormGroup;
   ocultar: boolean = false;
+  isLogged: boolean = false;
 
   constructor(public usuarioService: UsuarioService){}
   
@@ -58,6 +59,7 @@ export class UsuarioListar implements OnInit{
   saveUser(id: number, index: number) {
     if (this.form.invalid) return;
 
+    this.isLogged = false;
     let { nombre, email } = this.form.value;
 
     if(nombre === "")
@@ -66,12 +68,16 @@ export class UsuarioListar implements OnInit{
     if(email === "")
       email = this.usuarios[index].email;
 
+    if(this.usuarios[index].nombre === this.usuarioService.getUsername())
+      this.isLogged = true;
+
     this.usuarioService.updateUser(id, nombre, email)
       .subscribe(() => {
         this.modificando[index] = false;
         this.ocultar = false;
         const updateName = this.usuarioService.getUserByName(nombre);
-        localStorage.setItem('nombre', );
+        if(this.isLogged)
+          localStorage.setItem('nombre', nombre);
         this.listUsers(); // refresca la lista sin recargar la página
       });
 }
