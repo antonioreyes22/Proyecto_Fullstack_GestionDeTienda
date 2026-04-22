@@ -1,0 +1,105 @@
+.listadoBttn{
+    border: solid 2px rgb(152, 152, 152);
+    border-radius: 10px;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: 200px;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.listadoBttn i{
+    background-color: rgb(35, 35, 35);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50%);
+    top: 60px;
+    font-size: 102px;
+}
+
+.listadoBttn p{
+    margin-top: 200px;
+    font-size: 24px;
+}
+
+.listadoBttn:hover{
+    background-color: rgb(121, 121, 121);
+}
+
+.crearBttn{
+    border: solid 2px rgb(152, 152, 152);
+    border-radius: 10px;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50% + 130px);
+    top: 200px;
+}
+
+.crearBttn i{
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50% - 90px);
+    top: 20px;
+    font-size: 28px;
+}
+
+.crearBttn p{
+    margin-top: 18px;
+    margin-left: 90px;
+    font-size: 28px;
+}
+
+.buscarBttn{
+    border: solid 2px rgb(152, 152, 152);
+    border-radius: 10px;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50% + 130px);
+    top: 290px;
+}
+
+.buscarBttn i{
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50% - 90px);
+    top: 20px;
+    font-size: 28px;
+}
+
+.buscarBttn p{
+    margin-top: 18px;
+    margin-left: 90px;
+    font-size: 28px;
+}
+
+.eliminarBttn{
+    border: solid 2px rgb(152, 152, 152);
+    border-radius: 10px;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50% + 130px);
+    top: 380px;
+}
+
+.eliminarBttn i{
+    position: absolute;
+    transform: translateX(-50%);
+    left: calc(50% - 90px);
+    top: 20px;
+    font-size: 28px;
+}
+
+.eliminarBttn p{
+    margin-top: 18px;
+    margin-left: 90px;
+    font-size: 28px;
+}
