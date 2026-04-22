@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../models/usuario.model';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class UsuarioService {
 
   private apiUrl: string = 'http://localhost:8080/api/usuarios';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   crearUsuario(usuario: Usuario):Observable<Usuario> {
     return this.http.post<Usuario>(this.apiUrl + "/registrar", usuario);
@@ -45,6 +46,7 @@ export class UsuarioService {
   cerrarSesion(): void
   {
     localStorage.clear();
+    this.router.navigate(["/inicio"]);
   }
 
   getRole(): String | null

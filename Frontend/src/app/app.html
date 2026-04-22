@@ -1,4 +1,12 @@
-<nav class="navbar">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
     <ul>
         @if(usuarioService.isLogged())
         {
@@ -6,6 +14,7 @@
 
             @if(usuarioService.getRole() == "ADMIN")
             {
+                <li><a routerLink="/inicio"><i class="fa-solid fa-home"></i></a></li>
                 <li><a routerLink="/registro">Registro</a></li>
                 <li><a routerLink="/listado">Listado</a></li>
                 <li><a routerLink="/buscado">Buscar</a></li>
@@ -32,5 +41,8 @@
 
     </ul>
 </nav>
+</body>
+</html>
+
 
 <router-outlet />
