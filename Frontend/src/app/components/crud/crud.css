@@ -1,5 +1,9 @@
+a{
+    text-decoration: none;
+}
+
 .listadoBttn{
-    border: solid 2px rgb(152, 152, 152);
+    border: solid 2px rgb(152, 152, 152); 
     border-radius: 10px;
     width: 250px;
     height: 250px;
@@ -8,6 +12,7 @@
     top: 200px;
     transform: translateX(-50%);
     text-align: center;
+    transition: all ease 0.2s;
 }
 
 .listadoBttn i{
@@ -18,15 +23,26 @@
     left: calc(50%);
     top: 60px;
     font-size: 102px;
+    transition: all ease 0.2s;
 }
 
 .listadoBttn p{
     margin-top: 200px;
     font-size: 24px;
+    transition: all ease 0.2s;
 }
 
 .listadoBttn:hover{
-    background-color: rgb(121, 121, 121);
+    border-color: rgb(160, 137, 20);
+    box-shadow: 0px 0px 10px 1px rgb(215, 183, 26);
+}
+
+.listadoBttn:hover i{
+    color: rgb(215, 183, 26);
+}
+
+.listadoBttn:hover p{
+    color: rgb(215, 183, 26);
 }
 
 .crearBttn{
@@ -38,6 +54,7 @@
     transform: translateX(-50%);
     left: calc(50% + 130px);
     top: 200px;
+    transition: all ease 0.2s;
 }
 
 .crearBttn i{
@@ -46,12 +63,27 @@
     left: calc(50% - 90px);
     top: 20px;
     font-size: 28px;
+    transition: all ease 0.2s;
 }
 
 .crearBttn p{
     margin-top: 18px;
     margin-left: 90px;
     font-size: 28px;
+    transition: all ease 0.2s;
+}
+
+.crearBttn:hover{
+    border-color: rgb(24, 167, 16);
+    box-shadow: 0px 0px 10px 1px rgb(26, 221, 16);
+}
+
+.crearBttn:hover i{
+    color: rgb(26, 221, 16);
+}
+
+.crearBttn:hover p{
+    color: rgb(26, 221, 16);
 }
 
 .buscarBttn{
@@ -63,6 +95,7 @@
     transform: translateX(-50%);
     left: calc(50% + 130px);
     top: 290px;
+    transition: all ease 0.2s;
 }
 
 .buscarBttn i{
@@ -71,12 +104,27 @@
     left: calc(50% - 90px);
     top: 20px;
     font-size: 28px;
+    transition: all ease 0.2s;
 }
 
 .buscarBttn p{
     margin-top: 18px;
     margin-left: 90px;
     font-size: 28px;
+    transition: all ease 0.2s;
+}
+
+.buscarBttn:hover{
+    border-color: rgb(21, 137, 173);
+    box-shadow: 0px 0px 10px 1px rgb(25, 172, 217);
+}
+
+.buscarBttn:hover i{
+    color: rgb(25, 172, 217);
+}
+
+.buscarBttn:hover p{
+    color: rgb(25, 172, 217);
 }
 
 .eliminarBttn{
@@ -88,6 +136,7 @@
     transform: translateX(-50%);
     left: calc(50% + 130px);
     top: 380px;
+    transition: all ease 0.2s;
 }
 
 .eliminarBttn i{
@@ -96,10 +145,25 @@
     left: calc(50% - 90px);
     top: 20px;
     font-size: 28px;
+    transition: all ease 0.2s;
 }
 
 .eliminarBttn p{
     margin-top: 18px;
     margin-left: 90px;
     font-size: 28px;
+    transition: all ease 0.2s;
+}
+
+.eliminarBttn:hover{
+    border-color: rgb(184, 24, 24);
+    box-shadow: 0px 0px 10px 1px rgb(228, 29, 29);
+}
+
+.eliminarBttn:hover i{
+    color: rgb(228, 29, 29);
+}
+
+.eliminarBttn:hover p{
+    color: rgb(228, 29, 29);
 }
