@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+.galeria{
+    display: flex;
+    justify-content: center;
+}
+
+.galeria img{
+    width: 300px;
+    height: 300px;
+    border: 2px solid white;
+    margin: 10px;
+    margin-top: 50px;
+}
+
+.fIzq i,
+.fDer i{
+    position: absolute;
+    font-size: 38px;
+    transform: translateX(-50%);
+    top: 290px;
+    border: solid 2px white;
+    border-radius: 30px;
+    padding: 5px;
+    transition: all ease 0.2s;
+    
+}
+
+.fIzq i{
+    left: calc(50% - 600px);
+}
+
+.fDer i{
+    left: calc(50% + 600px);
+}
+
+.fIzq i:hover,
+.fDer i:hover{
+    color: grey;
+    border-color: grey;
+    cursor: pointer;
+}
