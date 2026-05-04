@@ -75,7 +75,6 @@ export class UsuarioListar implements OnInit{
       .subscribe(() => {
         this.modificando[index] = false;
         this.ocultar = false;
-        const updateName = this.usuarioService.getUserByName(nombre);
         if(this.isLogged)
           localStorage.setItem('nombre', nombre);
         this.listUsers(); // refresca la lista sin recargar la página

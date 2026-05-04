@@ -30,9 +30,8 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/registrar")
-    public Usuario guardarUsuario(@RequestBody Usuario usuario) {
-		
-		System.out.println("Aqui llega");
+    public Usuario guardarUsuario(@RequestBody Usuario usuario) 
+	{	
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioService.save(usuario);
     }
@@ -78,5 +77,11 @@ public class UsuarioController {
 	public Usuario UpdateUser(@PathVariable Long id, @RequestBody Map<String, String> datos) 
 	{
 		return usuarioService.UpdateUser(id, datos.get("newName"), datos.get("newEmail"));
+	}
+	
+	@GetMapping("/me")
+	public Usuario getUser() 
+	{
+		return usuarioService.getUser();
 	}
 }

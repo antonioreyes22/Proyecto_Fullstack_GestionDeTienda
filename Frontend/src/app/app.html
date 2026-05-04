@@ -16,14 +16,14 @@
             @if(usuarioService.getRole() == "ADMIN")
             {
                 <li><a routerLink="/crud">CRUD</a></li>
-                <li><a routerLink="/cerrarSesion">{{usuarioService.getUsername()}}</a></li>
+                <li><a routerLink="/perfil">{{usuarioService.getUsername()}}</a></li>
             }
 
 
             <!-- MENU DE USUARIO -->
             @if(usuarioService.getRole() == "USER")
             {
-                <li><a routerLink="/cerrarSesion">{{usuarioService.getUsername()}}</a></li>
+                <li><a routerLink="/perfil">{{usuarioService.getUsername()}}</a></li>
             }
 
             <li><a (click)="usuarioService.cerrarSesion()">Cerrar sesión</a></li>

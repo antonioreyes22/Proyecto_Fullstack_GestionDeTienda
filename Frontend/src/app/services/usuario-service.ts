@@ -65,4 +65,9 @@ export class UsuarioService {
   {
     return localStorage.getItem('nombre');
   }
+
+  getUser(): Observable<Usuario>
+  {
+    return this.http.get<Usuario>(this.apiUrl + "/me");
+  }
 }

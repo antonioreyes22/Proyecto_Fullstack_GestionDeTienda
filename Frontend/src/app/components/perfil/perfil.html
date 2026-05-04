@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Mi perfil</title>
+</head>
+<body>
+    <h1 class="datosText">DATOS DEL USUARIO</h1>
+
+    <div class="datos">
+        @if(!modificando)
+        {
+            <ul>
+                <label for="nombre">NOMBRE:</label>
+                    <li>{{usuario.nombre}}</li>
+                
+                <label for="correo">CORREO:</label>
+                    <li>{{usuario.email}}</li>
+
+                <div class="icono">
+                    <li><i class="fa-solid fa-pencil" (click)="modifyingUser()"></i></li>
+                </div>
+            </ul>
+        }
+        @else
+        {
+                <form [formGroup]="form" (ngSubmit)="saveUser(usuario.id!)">
+                    <input class="nameInput" type="text" formControlName="nombre">
+                    @if(form.controls['nombre'].hasError('minlength'))
+                    {
+                        <span class="nameSpan">Nombre demasiado corto</span>
+                    }
+                    @if(form.controls['nombre'].touched && form.controls['nombre'].hasError('nombreExiste'))
+                    {
+                    <span class="nameSpan">El nombre existe</span>
+                    }
+                    <input class="emailInput" type="text" formControlName="email">
+                    @if(form.controls['email'].hasError('email'))
+                    {
+                        <span class="emailSpan">No es un email</span>
+                    }
+                    @if(form.controls['email'].touched && form.controls['email'].hasError('emailExiste'))
+                    {
+                    <span class="emailSpan">El email existe</span>
+                    }
+                    <button class="modifyBttn" type="submit" [disabled]="form.invalid">Aceptar</button>
+                </form>
+        }
+    </div>
+</body>
+</html>

@@ -1,9 +1,13 @@
 h1{
+    margin-top: 20px;
     text-align: center;
+    font-size: 42px;
 }
 
 p{
+    margin-top: 5px;
     text-align: center;
+    font-size: 24px;
 }
 
 .galeria{
@@ -24,7 +28,7 @@ p{
     position: absolute;
     font-size: 38px;
     transform: translateX(-50%);
-    top: 290px;
+    top: 345px;
     border: solid 2px white;
     border-radius: 30px;
     padding: 5px;
@@ -45,4 +49,32 @@ p{
     color: grey;
     border-color: grey;
     cursor: pointer;
+}
+
+.gridSection ul{
+    margin-top: 40px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 170px);
+    text-align: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.gridSection ul li{
+    border: solid 2px white;
+    border-radius: 20px;
+    font-size: 24px;
+    padding: 10px 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.2s;
+    cursor: pointer;
+}
+
+.gridSection ul li:hover{
+    color: rgb(201, 201, 36);
+    border-color: rgb(201, 201, 36);
+    transform: scale(1.08);
 }

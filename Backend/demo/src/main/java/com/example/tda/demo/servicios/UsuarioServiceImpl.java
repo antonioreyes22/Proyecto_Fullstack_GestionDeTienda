@@ -2,6 +2,8 @@ package com.example.tda.demo.servicios;
 
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.example.tda.demo.modelos.Usuario;
@@ -101,5 +103,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		return usuarioRepository.save(usuario);
 	}
+	
+	@Override
+	public Usuario getUser() 
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		
+		System.out.println("USERNAME: " + username);
+		
+		return getByName(username);
+	}
+	
 
 }

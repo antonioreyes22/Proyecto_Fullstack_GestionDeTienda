@@ -45,6 +45,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 		}
 		
 		String token = header.substring(7);
+		System.out.println("ESTE ES EL TOKEN: " + token);
 		
 		try 
 		{
@@ -54,12 +55,16 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 			String role = claims.get("role", String.class);
 			
 			UsernamePasswordAuthenticationToken auth =
-					new UsernamePasswordAuthenticationToken(usuario, null, List.of(new SimpleGrantedAuthority("ROLE_" + role)));
+					new UsernamePasswordAuthenticationToken(usuario.getNombre(), null, List.of(new SimpleGrantedAuthority("ROLE_" + role)));
 			
 			SecurityContextHolder.getContext().setAuthentication(auth);
 			
+			System.out.println(SecurityContextHolder.getContext().getAuthentication());
+			
 		} catch(Exception e) 
 		{
+			e.printStackTrace();
+			System.out.println("ALGO SALIO MAL");
 			SecurityContextHolder.clearContext();
 		}
 		
