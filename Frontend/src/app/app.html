@@ -26,7 +26,7 @@
                 <li><a routerLink="/perfil">{{usuarioService.getUsername()}}</a></li>
             }
 
-            <li><a (click)="usuarioService.cerrarSesion()">Cerrar sesión</a></li>
+            <li><a style="cursor:pointer" (click)="usuarioService.cerrarSesion()">Cerrar sesión</a></li>
         }
         @else
         {

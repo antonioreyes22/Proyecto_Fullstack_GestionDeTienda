@@ -27,25 +27,32 @@
         @else
         {
                 <form [formGroup]="form" (ngSubmit)="saveUser(usuario.id!)">
+                    <label for="nombre">NOMBRE:</label>
                     <input class="nameInput" type="text" formControlName="nombre">
                     @if(form.controls['nombre'].hasError('minlength'))
                     {
-                        <span class="nameSpan">Nombre demasiado corto</span>
+                        <span style="color:red">Nombre demasiado corto</span>
                     }
                     @if(form.controls['nombre'].touched && form.controls['nombre'].hasError('nombreExiste'))
                     {
-                    <span class="nameSpan">El nombre existe</span>
+                    <span style="color:red">El nombre existe</span>
                     }
+                    <label for="correo">CORREO:</label>
                     <input class="emailInput" type="text" formControlName="email">
                     @if(form.controls['email'].hasError('email'))
                     {
-                        <span class="emailSpan">No es un email</span>
+                        <span style="color:red">No es un email</span>
                     }
                     @if(form.controls['email'].touched && form.controls['email'].hasError('emailExiste'))
                     {
-                    <span class="emailSpan">El email existe</span>
+                    <span style="color:red">El email existe</span>
                     }
-                    <button class="modifyBttn" type="submit" [disabled]="form.invalid">Aceptar</button>
+                    <div class="icono">
+                        <i class="fa-solid fa-arrow-down" style="margin-top:25px"
+                            (click)="saveUser(usuario.id!)"
+                            [class.disabled]="form.invalid">
+                        </i>
+                    </div>
                 </form>
         }
     </div>
