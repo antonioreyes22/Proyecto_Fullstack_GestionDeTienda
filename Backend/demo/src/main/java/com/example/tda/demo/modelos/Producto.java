@@ -13,10 +13,20 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String nombre;
 	private TipoProducto tipo;
 	private GeneroProducto genero;
 	private float precio;
-	
+	private String imagen;
+		
+	public Producto(TipoProducto tipo, String nombre, GeneroProducto genero, float precio, String imagen) {
+		super();
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.genero = genero;
+		this.precio = precio;
+		this.imagen = imagen;
+	}
 	
 	public TipoProducto getTipo() {
 		return tipo;
@@ -45,5 +55,22 @@ public class Producto {
 	public Long getId() {
 		return id;
 	}
+	
+	public void setImagen(String imagen) 
+	{
+		this.imagen = imagen;
+	}
+	
+	public String getImagen() 
+	{
+		return imagen;
+	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}	
 }
