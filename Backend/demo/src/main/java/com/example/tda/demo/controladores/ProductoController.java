@@ -54,4 +54,16 @@ public class ProductoController {
 	{
 		productoService.deleteById(id);
 	}
+	
+	@GetMapping("/tipo/chaquetas")
+	public List<Producto> findAllChaquetas()
+	{
+		return productoService.findAllChaquetas();
+	}
+	
+	@GetMapping("/tipo/camisetas")
+	public List<Producto> findAllCamisetas()
+	{
+		return productoService.findAllChaquetas();
+	}
 }

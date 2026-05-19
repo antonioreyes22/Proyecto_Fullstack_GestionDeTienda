@@ -11,4 +11,6 @@ public interface ProductoService {
 	public Producto findById(Long id);
 	public Producto getByName(String name);
 	public void deleteById(Long id);
+	public List<Producto> findAllCamisetas();
+	public List<Producto> findAllChaquetas();
 }

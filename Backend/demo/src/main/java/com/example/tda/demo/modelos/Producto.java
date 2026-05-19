@@ -1,6 +1,9 @@
 package com.example.tda.demo.modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,12 +15,22 @@ public class Producto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_producto")
 	private Long id;
 	private String nombre;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo")
 	private TipoProducto tipo;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "genero")
 	private GeneroProducto genero;
+	
 	private float precio;
 	private String imagen;
+	
+	public Producto() {}
 		
 	public Producto(TipoProducto tipo, String nombre, GeneroProducto genero, float precio, String imagen) {
 		super();

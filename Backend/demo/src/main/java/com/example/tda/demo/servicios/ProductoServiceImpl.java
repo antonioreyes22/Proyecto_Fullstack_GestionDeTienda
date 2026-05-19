@@ -52,4 +52,17 @@ public class ProductoServiceImpl implements ProductoService{
 	{
 		productoRepository.deleteById(id);
 	}
+	
+	@Override
+	public List<Producto> findAllCamisetas()
+	{
+		
+		return productoRepository.findAllCamisetas();
+	}
+	
+	@Override
+	public List<Producto> findAllChaquetas()
+	{
+		return productoRepository.findAllChaquetas();
+	}
 }

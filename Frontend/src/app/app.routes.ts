@@ -9,6 +9,7 @@ import { roleGuardGuard } from './guards/role-guard-guard';
 import { Crud } from './components/crud/crud';
 import { Perfil } from './components/perfil/perfil';
 import { ProductoDetalle } from './components/producto/producto-detalle/producto-detalle';
+import { ListaProductos } from './components/producto/lista-productos/lista-productos';
 
 export const routes: Routes = [
     {path: 'inicio', component: Inicio},
@@ -19,5 +20,6 @@ export const routes: Routes = [
     {path: 'crud', component: Crud, canActivate: [roleGuardGuard], data: {role: 'ADMIN'}},
     {path: 'login', component: Login},
     {path: 'perfil', component: Perfil},
+    {path: 'productos', component: ListaProductos, canActivate: [roleGuardGuard], data: {role: 'ADMIN'}},
     {path: 'producto/:id', component: ProductoDetalle}
 ];

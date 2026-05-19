@@ -32,4 +32,12 @@ export class ProductoService {
   deleteById(id: number): Observable<Producto>{
     return this.http.post<Producto>(this.apiUrl + "/eliminar/" + id, id);
   }
+
+  findAllChaquetas(): Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.apiUrl + "/tipo/chaquetas");
+  }
+
+  findAllCamisetas(): Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.apiUrl + "/tipo/camisetas");
+  }
 }
